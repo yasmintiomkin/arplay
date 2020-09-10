@@ -10,13 +10,20 @@ public class SRDataSource
 
     static public void Save()
     {
-        string val = JsonUtility.ToJson(gameData);
-        System.IO.File.WriteAllText(filename, val);
+        try
+        {
+            string val = JsonUtility.ToJson(gameData);
+            System.IO.File.WriteAllText(filename, val);
+        }
+        catch 
+        {
+            // ignore error
+            Debug.Log("SRDataSource: save failed");
+        }
     }
 
     static public void Load()
     {
-        //if (isDataSaved)
         try
         {
             string val = System.IO.File.ReadAllText(filename);
@@ -32,10 +39,10 @@ public class SRDataSource
                 gameData = data;
             }
         }
-        catch (Exception e)
+        catch
         {
             // ignore error
-            Debug.Log("file not found");
+            Debug.Log("SRDataSource: load failed");
         }
     }
 }
@@ -52,6 +59,14 @@ public class SRGameData
         {
             surprises = new List<SRSurpriseData>();
         }
+    }
+
+    public void Add(GameObject gameObject)
+    {
+        var data = new SRSurpriseData();
+        data.position = gameObject.transform.position;
+        data.rotation = gameObject.transform.rotation;
+        surprises.Add(data);
     }
 }
 

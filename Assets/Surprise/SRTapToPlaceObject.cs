@@ -20,7 +20,31 @@ public class SRTapToPlaceObject : MonoBehaviour
         raycastManager = GetComponent<ARRaycastManager>();
     }
 
-    bool TryGetTouchPosition(out Vector2 touchPosition)
+    // Update is called once per frame
+    void Update()
+    {
+        if (!GetTouchPosition(out touchPosition))
+        {
+            return;
+        }
+
+        if (raycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
+        {
+            InstanciateSurprise(hits[0]);
+
+            //var hitPose = hits[0].pose;
+
+            //if (spawndObject == null)
+            //{
+            //    spawndObject = Instantiate(gameobjectToInstantiate, hitPose.position, hitPose.rotation);
+            //}
+            //else
+            //{
+            //    spawndObject.transform.position = hitPose.position;
+            //}
+        }
+    }
+    bool GetTouchPosition(out Vector2 touchPosition)
     {
         if (Input.touchCount > 0)
         {
@@ -32,26 +56,12 @@ public class SRTapToPlaceObject : MonoBehaviour
         return false;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void InstanciateSurprise(ARRaycastHit hit)
     {
-        if (!TryGetTouchPosition(out touchPosition))
-        {
-            return;
-        }
-
-        if (raycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
-        {
-            var hitPose = hits[0].pose;
-
-            if (spawndObject == null)
-            {
-                spawndObject = Instantiate(gameobjectToInstantiate, hitPose.position, hitPose.rotation);
-            }
-            else
-            {
-                spawndObject.transform.position = hitPose.position;
-            }
-        }
+        var hitPose = hit.pose;
+        GameObject spawndObject = Instantiate(gameobjectToInstantiate, hitPose.position, hitPose.rotation);
+        SRDataSource.gameData.Add(spawndObject);
+        SRDataSource.Save();
     }
 }
