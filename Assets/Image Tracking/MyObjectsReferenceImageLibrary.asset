@@ -25,13 +25,3 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: brown glasses
     m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 5449229643279400784
-      m_GuidHigh: 16683489565248635289
-    m_SerializedTextureGuid:
-      m_GuidLow: 0
-      m_GuidHigh: 0
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: 
-    m_Texture: {fileID: 0}
