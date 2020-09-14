@@ -50,7 +50,11 @@ public class SRDataSource
 [Serializable]
 public class SRGameData
 {
+    public enum Mode { hide = 0, seek = 1 };
+
     public List<SRSurpriseData> surprises = new List<SRSurpriseData>();
+    public string selectedSprite = "";
+    public Mode mode = Mode.hide;
 
     public void LoadPostProcessing()
     {
@@ -58,6 +62,8 @@ public class SRGameData
         if (surprises == null)
         {
             surprises = new List<SRSurpriseData>();
+            selectedSprite = "";
+            mode = Mode.hide;
         }
     }
 
