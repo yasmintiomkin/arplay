@@ -329,7 +329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f11df8c8bd24e2aa19c6bed843ccd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameobjectToInstantiate: {fileID: 4659309165985549625, guid: 15256b8e03d2b456bac399b150406ec0, type: 3}
 --- !u!114 &803065699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +505,6 @@ GameObject:
   - component: {fileID: 1743927093}
   - component: {fileID: 1743927092}
   - component: {fileID: 1743927091}
-  - component: {fileID: 1743927090}
   m_Layer: 0
   m_Name: AR Session
   m_TagString: Untagged
@@ -514,20 +512,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1743927090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743927089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 5573999177352272622, guid: 22bfe6f76f04b4904a55c5c3fdac7c7d, type: 3}
-  m_DetectionMode: -1
 --- !u!114 &1743927091
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,6 +45,11 @@ public class SRDataSource
             Debug.Log("SRDataSource: load failed");
         }
     }
+
+    static public void Reset()
+    {
+        System.IO.File.Delete(filename);
+    }
 }
 
 [Serializable]

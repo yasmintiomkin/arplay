@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class SRInventory : MonoBehaviour
 {
+    public static string sceneName = nameof(SRInventory);
+
+
     public enum Item { dragon = 1, butterfly };
 
     private Item selectedItem = Item.dragon;
@@ -24,7 +27,7 @@ public class SRInventory : MonoBehaviour
         SRDataSource.gameData.selectedSprite = "" + selectedItem;
         SRDataSource.Save();
 
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+        SceneManager.UnloadSceneAsync(SRInventory.sceneName);
     }
 
     static public Item ItemByFilename(string filename)
@@ -32,4 +35,5 @@ public class SRInventory : MonoBehaviour
         // TEMPORARY since we don't really use filenames for now
         return (filename == "1") ? Item.dragon : Item.butterfly;
     }
+
 }
