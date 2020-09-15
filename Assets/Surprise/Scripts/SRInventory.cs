@@ -6,7 +6,7 @@ public class SRInventory : MonoBehaviour
     public static string sceneName = nameof(SRInventory);
 
 
-    public enum Item { dragon = 1, butterfly };
+    public enum Item { dragon = 1, butterfly = 2 };
 
     private Item selectedItem = Item.dragon;
 
@@ -24,16 +24,22 @@ public class SRInventory : MonoBehaviour
 
     private void SaveNClose()
     {
-        SRDataSource.gameData.selectedSprite = "" + selectedItem;
+		Debug.Log("===> selectedSprite: " + "" + selectedItem);
+
+		SRDataSource.gameData.selectedSprite = "" + selectedItem;
         SRDataSource.Save();
 
-        SceneManager.UnloadSceneAsync(SRInventory.sceneName);
+        //SceneManager.UnloadSceneAsync(sceneName);
+        SceneManager.LoadSceneAsync(SRGameMenu.sceneName);
+
     }
 
-    static public Item ItemByFilename(string filename)
+    static public Item ItemBySpritename(string filename)
     {
-        // TEMPORARY since we don't really use filenames for now
-        return (filename == "1") ? Item.dragon : Item.butterfly;
+		Debug.Log("===> ItemByFilename: " + filename);
+
+		// TEMPORARY since we don't really use filenames for now
+		return (filename == "" + Item.dragon) ? Item.dragon : Item.butterfly;
     }
 
 }

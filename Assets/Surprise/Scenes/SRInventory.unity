@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 379713083}
   - component: {fileID: 379713082}
   - component: {fileID: 379713086}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: InventoryCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 430887786}
   - component: {fileID: 430887788}
   - component: {fileID: 430887787}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2309653444923563120, guid: b542975707ff4ce429097565ece2e306, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2309653444923563132, guid: b542975707ff4ce429097565ece2e306, type: 3}
       propertyPath: m_LocalPosition.x
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 1009915543}
   - component: {fileID: 1009915542}
   - component: {fileID: 1009915541}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Select2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4659309165985549625, guid: 15256b8e03d2b456bac399b150406ec0, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15256b8e03d2b456bac399b150406ec0, type: 3}
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 1511956041}
   - component: {fileID: 1511956040}
   - component: {fileID: 1511956039}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Select1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1050,7 +1050,7 @@ GameObject:
   - component: {fileID: 1624602511}
   - component: {fileID: 1624602513}
   - component: {fileID: 1624602512}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 2108687172}
   - component: {fileID: 2108687174}
   - component: {fileID: 2108687173}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

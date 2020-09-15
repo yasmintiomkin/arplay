@@ -9,7 +9,7 @@ public class SRLoadScene : MonoBehaviour
     {
         foreach (var data in SRDataSource.gameData.surprises)
         {
-            var item = SRInventory.ItemByFilename(data.spriteFilename);
+            var item = SRInventory.ItemBySpritename(data.spriteFilename);
             var inst = (item == SRInventory.Item.dragon) ? inst1 : inst2;
             Instantiate(inst, data.position, data.rotation);
         }
@@ -20,7 +20,7 @@ public class SRLoadScene : MonoBehaviour
         get
         {
             var selectedSprite = SRDataSource.gameData.selectedSprite;
-            var item = SRInventory.ItemByFilename(selectedSprite);
+            var item = SRInventory.ItemBySpritename(selectedSprite);
             var inst = (item == SRInventory.Item.dragon) ? inst1 : inst2;
             return inst;
         }

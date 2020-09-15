@@ -26,5 +26,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Surprise/Scenes/SRSeek.unity
     guid: 9b0fa0f8225ef5d4aa184011ea0f88c3
+  - enabled: 0
+    path: Assets/Surprise/Scenes/testhide.unity
+    guid: 2f9f70ca867fc48c2a50e8bc58cbd8f5
+  - enabled: 0
+    path: Assets/Surprise/Scenes/testseek.unity
+    guid: 207a4cd313937442ab98db42538fa335
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7fde017a0c474418ea3292600492aba5, type: 2}
