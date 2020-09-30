@@ -19,7 +19,6 @@ public class SRGameMenu : MonoBehaviour
     {
 		SRDataSource.Load();
         currentMode = SRDataSource.gameData.mode;
-        Debug.Log("===> Start current scene name: "+ SceneName(currentMode));
 
 		switch (currentMode)
 		{
@@ -27,7 +26,9 @@ public class SRGameMenu : MonoBehaviour
 			case SRGameData.Mode.hide: hideToggle.isOn = true; seekToggle.isOn = false; break;
 		}
 
-		SceneManager.LoadSceneAsync(SceneName(currentMode), LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(SRHideNSeek.sceneName, LoadSceneMode.Additive);
+
+        //SceneManager.LoadSceneAsync(SceneName(currentMode), LoadSceneMode.Additive);
 
 		ignoreToggle = false;
     }
@@ -47,7 +48,8 @@ public class SRGameMenu : MonoBehaviour
     public void OnReset()
     {
         SRDataSource.Reset();
-        SwitchGameScene();
+        // notify AR about reset
+        //SwitchGameScene();
     }
 
     public void OnOpenInventory()
@@ -55,7 +57,7 @@ public class SRGameMenu : MonoBehaviour
         //var unloadScene = SceneName(currentMode);
         var loadScene = SRInventory.sceneName;
         //StartCoroutine(SceneSwitch(unloadScene, loadScene));
-        SceneManager.LoadSceneAsync(loadScene);
+        SceneManager.LoadScene(loadScene);//, LoadSceneMode.Additive);
     }
 
     private void SwitchModeIfNeeded(SRGameData.Mode switchToMode, Toggle toggled, Toggle otherToggle)
@@ -75,10 +77,14 @@ public class SRGameMenu : MonoBehaviour
         SRDataSource.gameData.mode = switchToMode;
         SRDataSource.Save();
 
+        // notify AR about switch in game mode
+        
+
         // load game for new mode
-        SwitchGameScene();
+        //SwitchGameScene();
     }
 
+    /*
     private string SceneName(SRGameData.Mode mode)
     {
         switch (mode)
@@ -115,4 +121,5 @@ public class SRGameMenu : MonoBehaviour
         yield return op1;
         SceneManager.LoadSceneAsync(loadScene, LoadSceneMode.Additive);
     }
+    */
 }

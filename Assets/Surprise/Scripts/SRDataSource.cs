@@ -6,7 +6,7 @@ public class SRDataSource
 {
 	static public SRGameData gameData = new SRGameData();
 
-	static private string filename = Application.persistentDataPath + "/GameData2.json";
+	static private string filename = Application.persistentDataPath + "/GameData3.json";
 
 	static public void Save()
 	{
@@ -48,35 +48,38 @@ public class SRDataSource
 
 	static public void Reset()
 	{
-        // seems like delete file does not work...
-        gameData = new SRGameData();
+        gameData.surprises.Clear();
         Save();
 
-        //		try
-        //		{
-        //#if UNITY_IPHONE
-        //            System.IO.File.Delete("/private" + filename);
-
-        //#else
-        //			System.IO.File.Delete(filename);
-        //#endif
-        //		}
-        //		catch
-        //		{
-        //			// ignore error
-        //			Debug.Log("===> SRDataSource: reset failed");
-        //		}
+        gameData.resetDelegate.Invoke();
     }
 }
 
 [Serializable]
 public class SRGameData
 {
-	public enum Mode { hide = 0, seek = 1 };
+    public delegate void OnGameDataResetDelegate();
+    public OnGameDataResetDelegate resetDelegate;
+    public delegate void OnGameModeChangedDelegate(Mode oldValue, Mode newValue);
+    public OnGameModeChangedDelegate modeChangeDelegate;
+
+    public enum Mode { hide = 0, seek = 1 };
 
 	public List<SRSurpriseData> surprises = new List<SRSurpriseData>();
 	public string selectedSprite = "";
-	public Mode mode = Mode.hide;
+
+    private Mode _mode = Mode.hide;
+	public Mode mode
+    {
+        get => _mode;
+
+        set
+        {
+            var oldMode = _mode;
+            _mode = value;
+            modeChangeDelegate(oldMode, _mode);
+        }
+    }
 
 	public void LoadPostProcessing()
 	{
@@ -91,10 +94,13 @@ public class SRGameData
 
 	public void Add(GameObject gameObject)
 	{
-		var data = new SRSurpriseData();
-		data.position = gameObject.transform.position;
-		data.rotation = gameObject.transform.rotation;
-		surprises.Add(data);
+        var data = new SRSurpriseData
+        {
+            spriteFilename = selectedSprite,
+            position = gameObject.transform.position,
+            rotation = gameObject.transform.rotation
+        };
+        surprises.Add(data);
 	}
 }
 

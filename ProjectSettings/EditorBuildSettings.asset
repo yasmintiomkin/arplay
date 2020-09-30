@@ -18,19 +18,16 @@ EditorBuildSettings:
     path: Assets/Surprise/Scenes/SRGameMenu.unity
     guid: 4ac16a91f58a175419bed65dcc1c323c
   - enabled: 1
-    path: Assets/Surprise/Scenes/SRHide.unity
-    guid: 74ed3d0c860f24656b5ae7acdb42a2aa
+    path: Assets/Surprise/Scenes/SRHideNSeek.unity
+    guid: ed3f8c44d64bc484bb8e17c60c0c1301
   - enabled: 1
     path: Assets/Surprise/Scenes/SRInventory.unity
     guid: 9e2e158e2ee6a2f49953c266dd281e14
-  - enabled: 1
-    path: Assets/Surprise/Scenes/SRSeek.unity
+  - enabled: 0
+    path: Assets/Surprise/Scenes/archive/SRHide.unity
+    guid: 74ed3d0c860f24656b5ae7acdb42a2aa
+  - enabled: 0
+    path: Assets/Surprise/Scenes/archive/SRSeek.unity
     guid: 9b0fa0f8225ef5d4aa184011ea0f88c3
-  - enabled: 0
-    path: Assets/Surprise/Scenes/testhide.unity
-    guid: 2f9f70ca867fc48c2a50e8bc58cbd8f5
-  - enabled: 0
-    path: Assets/Surprise/Scenes/testseek.unity
-    guid: 207a4cd313937442ab98db42538fa335
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7fde017a0c474418ea3292600492aba5, type: 2}

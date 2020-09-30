@@ -8,8 +8,6 @@ public class SRHide : MonoBehaviour
 {
     public static string sceneName = nameof(SRHide);
 
-    public GameObject aaa;
-
     private ARRaycastManager raycastManager;
     private Vector2 touchPosition;
     private SRLoadScene loadScene;
@@ -56,7 +54,6 @@ public class SRHide : MonoBehaviour
     {
         var hitPose = hit.pose;
         GameObject spawnedObject = Instantiate(loadScene.currentHideInstance, hitPose.position, hitPose.rotation);
-        //GameObject spawnedObject = Instantiate(aaa, hitPose.position, hitPose.rotation);
         SRDataSource.gameData.Add(spawnedObject);
         SRDataSource.Save();
     }

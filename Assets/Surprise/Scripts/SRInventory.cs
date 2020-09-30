@@ -30,7 +30,7 @@ public class SRInventory : MonoBehaviour
         SRDataSource.Save();
 
         //SceneManager.UnloadSceneAsync(sceneName);
-        SceneManager.LoadSceneAsync(SRGameMenu.sceneName);
+        SceneManager.LoadScene(SRGameMenu.sceneName);
 
     }
 
@@ -42,4 +42,9 @@ public class SRInventory : MonoBehaviour
 		return (filename == "" + Item.dragon) ? Item.dragon : Item.butterfly;
     }
 
+    public void OnDestroy()
+    {
+        // the scene containing these objects is loadede as additive, so destroy the instances
+        Debug.Log("ondestroy");
+    }
 }
