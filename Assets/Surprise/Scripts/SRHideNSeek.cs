@@ -82,5 +82,14 @@ public class SRHideNSeek : MonoBehaviour
         GameObject spawnedObject = Instantiate(loadScene.currentHideInstance, hitPose.position, hitPose.rotation);
         SRDataSource.gameData.Add(spawnedObject);
         SRDataSource.Save();
+
+        RemovePlane(hit);
+    }
+
+    void RemovePlane(ARRaycastHit hit)
+    {
+        var plane = arPlaneManager.GetPlane(hit.trackableId);
+        //plane.enabled = false; // does not work!!!
+
     }
 }
